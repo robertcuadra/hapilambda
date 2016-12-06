@@ -1,0 +1,21 @@
+service: hapilambda
+provider:
+  name: aws
+  runtime: nodejs4.3
+  profile: freebird
+functions:
+  dispatch:
+    handler: handler.dispatch
+    events:
+      - http:
+          path: user/{id}
+          method: get
+      - http:
+          path: user
+          method: post
+      - http:
+          path: offer/{id}
+          method: get
+      - http:
+          path: offer
+          method: post
